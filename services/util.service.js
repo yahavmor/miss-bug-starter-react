@@ -1,9 +1,13 @@
+import fs from 'fs';
+
 export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
     loadFromStorage,
-    saveToStorage
+    saveToStorage,
+    readJsonFile,
+    writeJsonFile
 }
 
 function makeId(length = 6) {
@@ -43,3 +47,12 @@ function saveToStorage(keyDB, val) {
     const valStr = JSON.stringify(val)
     localStorage.setItem(keyDB, valStr)
 }
+function readJsonFile(filePath) {
+  const data = fs.readFileSync(filePath, 'utf8');
+  return JSON.parse(data);
+}     
+
+function writeJsonFile(filePath, data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+} 
+
