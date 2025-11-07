@@ -1,10 +1,11 @@
 import express from 'express' 
 import { bugService } from './bug.service.remote.js'
-import { utilService } from './services/util.service.js'
+import { utilService } from './public/services/util.service.js'
 
 
 
 const app = express() 
+app.use(express.static('public'));
 app.get('/', (req, res) => res.send('Hello there')) 
 app.listen(3030, () => console.log('Server ready at port 3030'))
 

@@ -1,22 +1,72 @@
 [
   {
-    "title": "Keyboard Not Found",
+    "_id": "abc123",
+    "title": "Cannot save a new car",
+    "description": "problem when clicking Save",
     "severity": 3,
-    "_id": "K3YB0RD"
+    "createdAt": 1542107359454
   },
   {
-    "title": "sex",
-    "severity": "default severity",
-    "_id": "C0FF33"
+    "_id": "K3YB0RD",
+    "title": "Keyboard Not Found",
+    "description": "System fails to detect keyboard on boot",
+    "severity": 3,
+    "createdAt": 1542107360000
   },
   {
+    "_id": "C0FF33",
+    "title": "Login Button Unresponsive",
+    "description": "Clicking login does nothing on mobile",
+    "severity": 2,
+    "createdAt": 1542107361000
+  },
+  {
+    "_id": "G0053",
     "title": "Unexpected Response",
+    "description": "API returns 500 instead of 404",
     "severity": 1,
-    "_id": "G0053"
+    "createdAt": 1542107362000
   },
   {
-    "id": "vVk6gz",
-    "title": "default title",
-    "severity": "default severity"
+    "_id": "vVk6gz",
+    "title": "Missing Profile Picture",
+    "description": "User profile loads without image",
+    "severity": 2,
+    "createdAt": 1542107363000
+  },
+  {
+    "_id": "B4CKUP",
+    "title": "Backup Failed",
+    "description": "Scheduled backup did not run",
+    "severity": 3,
+    "createdAt": 1542107364000
+  },
+  {
+    "_id": "PR1NT3R",
+    "title": "Printer Not Responding",
+    "description": "Print job stuck in queue",
+    "severity": 2,
+    "createdAt": 1542107365000
+  },
+  {
+    "_id": "N3TW0RK",
+    "title": "Network Timeout",
+    "description": "Frequent disconnects during video calls",
+    "severity": 2,
+    "createdAt": 1542107366000
+  },
+  {
+    "_id": "UPD4T3",
+    "title": "Update Loop",
+    "description": "System keeps reinstalling same update",
+    "severity": 3,
+    "createdAt": 1542107367000
+  },
+  {
+    "_id": "S3CUR3",
+    "title": "Security Warning",
+    "description": "Browser flags site as insecure",
+    "severity": 1,
+    "createdAt": 1542107368000
   }
 ]

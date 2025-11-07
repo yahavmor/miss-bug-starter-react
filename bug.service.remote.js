@@ -1,4 +1,4 @@
-import { utilService } from './services/util.service.js'
+import { utilService } from './public/services/util.service.js'
 
 
 export const bugService ={
