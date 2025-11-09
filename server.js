@@ -1,52 +1,50 @@
-import express from 'express' 
-import { bugService } from './bug.service.remote.js'
-import { utilService } from './public/services/util.service.js'
+import express from 'express';
+import { bugService } from './services/bug.service.js';
+import { utilService } from './public/services/util.service.js';
 
-
-
-const app = express() 
+const app = express();
 app.use(express.static('public'));
-app.get('/', (req, res) => res.send('Hello there')) 
-app.listen(3030, () => console.log('Server ready at port 3030'))
+app.use(express.json()); 
 
+app.get('/', (req, res) => res.send('Hello there'));
 
 app.get('/api/bug', (req, res) => {
-      bugService.query()
-      .then(bugs => {res.send(bugs);});
+  bugService.query(req.query)
+    .then(bugs => res.send(bugs))
+    .catch(err => res.status(500).send('Failed to load bugs'));
 });
 
-
-
-app.get('/api/bug/:id/remove', (req, res) => {
-      bugService.remove(req.params.id)
-      .then(bugs => {res.send(bugs);});
+app.get('/api/bug/:id', (req, res) => {
+  const { id } = req.params;
+  bugService.getById(id)
+    .then(bug => {
+      if (!bug) return res.status(404).send('Bug not found');
+      res.send(bug);
+    })
+    .catch(err => res.status(500).send('Failed to get bug'));
 });
 
-app.get('/api/bug/save', (req, res) => {
-  const { id, title, severity } = req.query;
-  if (id) {
-    bugService.getById(id)
-      .then(bug => {
-        bug.title = title || 'default title';
-        bug.severity = severity || 'default severity';
-        return bugService.save(bug);
-      })
-      .then(bugs => res.send(bugs))
-  } else {
-    let newBug = {
-      id: utilService.makeId(),
-      title: title || 'default title',
-      severity: severity || 'default severity'
-    };
-    bugService.save(newBug)
-      .then(bugs => res.send(bugs))
-  }
+app.delete('/api/bug/:id', (req, res) => {
+  const { id } = req.params;
+  bugService.remove(id)
+    .then(() => res.send({ message: 'Bug removed' }))
+    .catch(err => res.status(404).send('Bug not found'));
 });
 
-
-
-app.get('/api/bug /:id', (req, res) => {
-      const {id} = req.params
-      bugService.getById(id)
-      .then(bug => {res.send(bug);});
+app.post('/api/bug', (req, res) => {
+  const bug = req.body;
+  bug._id = utilService.makeId();
+  bugService.save(bug)
+    .then(savedBug => res.send(savedBug))
+    .catch(err => res.status(500).send('Failed to create bug'));
 });
+
+app.put('/api/bug/:id', (req, res) => {
+  const { id } = req.params;
+  const updatedBug = { ...req.body, _id: id };
+  bugService.save(updatedBug)
+    .then(savedBug => res.send(savedBug))
+    .catch(err => res.status(404).send('Bug not found for update'));
+});
+
+app.listen(3030, () => console.log('Server ready at port 3030'));

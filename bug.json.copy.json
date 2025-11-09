@@ -1,16 +1,37 @@
 [
   {
+    "_id": "N3TW0RK",
+    "title": "Network Timeout",
+    "description": "System unable to reach DNS server",
+    "severity": 2,
+    "createdAt": 1542107370000
+  },
+  {
+    "_id": "DR1V3R",
+    "title": "Driver Crash",
+    "description": "Graphics driver crashes during video playback",
+    "severity": 3,
+    "createdAt": 1542107371000
+  },
+  {
+    "_id": "L0G1N",
+    "title": "Login Failure",
+    "description": "User unable to authenticate with correct credentials",
+    "severity": 2,
+    "createdAt": 1542107372000
+  },
+  {
     "_id": "B4TT3RY",
     "title": "Battery Drain",
     "description": "Laptop battery depletes rapidly while idle",
-    "severity": 531,
+    "severity": 2,
     "createdAt": 1542107373000
   },
   {
     "_id": "FR3Z3",
     "title": "System Freeze",
     "description": "System becomes unresponsive during startup",
-    "severity": 644,
+    "severity": 3,
     "createdAt": 1542107374000
   },
   {
