@@ -21,6 +21,19 @@ function query(filterBy = {}) {
   if (filterBy.minSeverity) {
     filteredBugs = filteredBugs.filter(bug => bug.severity >= filterBy.minSeverity);
   }
+  if (filterBy.label) {
+      filteredBugs = filteredBugs.filter(bug =>
+          bug.labels && bug.labels.includes(filterBy.label)
+      )
+  }
+  if (filterBy.sortBy) {
+    const sortDir = filterBy.sortDir === 'desc' ? -1 : 1;
+    filteredBugs.sort((a, b) => {
+      if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * sortDir;
+      if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * sortDir;
+      return 0;
+    });
+  }
 
   return Promise.resolve(filteredBugs);
 }
@@ -40,6 +53,7 @@ function remove(id) {
 }
 
 function save(bug) {
+  console.log(bug)
   if (bug._id) {
     const idx = bugs.findIndex(b => b._id === bug._id);
     if (idx !== -1) {

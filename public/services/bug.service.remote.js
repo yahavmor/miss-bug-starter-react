@@ -45,7 +45,7 @@ function save(bug) {
         console.error('Error updating bug:', err);
         throw err;
       });
-  } else {
+  } else {    
     return axios.post(BASE_URL, bug)
       .then(res => res.data)
       .catch(err => {
@@ -56,5 +56,5 @@ function save(bug) {
 }
 
 function getDefaultFilter() {
-  return { txt: '', minSeverity: 0 };
+    return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' }
 }

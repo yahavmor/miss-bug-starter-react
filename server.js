@@ -1,12 +1,13 @@
 import express from 'express';
 import { bugService } from './services/bug.service.js';
 import { utilService } from './public/services/util.service.js';
+import cookieParser from 'cookie-parser';
 
 const app = express();
 app.use(express.static('public'));
-app.use(express.json()); 
+app.use(express.json());
+app.use(cookieParser()) 
 
-app.get('/', (req, res) => res.send('Hello there'));
 
 app.get('/api/bug', (req, res) => {
   bugService.query(req.query)
@@ -14,15 +15,24 @@ app.get('/api/bug', (req, res) => {
     .catch(err => res.status(500).send('Failed to load bugs'));
 });
 
+
 app.get('/api/bug/:id', (req, res) => {
-  const { id } = req.params;
-  bugService.getById(id)
-    .then(bug => {
-      if (!bug) return res.status(404).send('Bug not found');
-      res.send(bug);
-    })
-    .catch(err => res.status(500).send('Failed to get bug'));
+    const { id } = req.params;
+    let visitedBugs = req.cookies.visitedBugs ? req.cookies.visitedBugs : [];
+    if (!visitedBugs.includes(id)) visitedBugs.push(id);
+    if (visitedBugs.length > 3) return res.status(401).send('Wait for a bit') 
+
+      res.cookie('visitedBugs', visitedBugs, { maxAge: 7000 });
+      console.log('User visited at the following bugs:', visitedBugs);
+
+    bugService.getById(id)
+        .then(bug => {
+            if (!bug) return res.status(404).send('Bug not found');
+            res.send(bug);
+        })
+        .catch(err => res.status(500).send('Failed to get bug'));
 });
+
 
 app.delete('/api/bug/:id', (req, res) => {
   const { id } = req.params;
@@ -33,7 +43,8 @@ app.delete('/api/bug/:id', (req, res) => {
 
 app.post('/api/bug', (req, res) => {
   const bug = req.body;
-  bug._id = utilService.makeId();
+  bug.id = utilService.makeId();
+  console.log(bug)
   bugService.save(bug)
     .then(savedBug => res.send(savedBug))
     .catch(err => res.status(500).send('Failed to create bug'));

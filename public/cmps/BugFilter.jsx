@@ -1,7 +1,6 @@
 const { useState, useEffect } = React
 
 export function BugFilter({ filterBy, onSetFilterBy }) {
-
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
 
     useEffect(() => {
@@ -12,21 +11,21 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         const field = target.name
         let value = target.value
 
-        switch (target.type) {
-            case 'number':
-            case 'range':
-                value = +value || ''
-                break
-
-            case 'checkbox':
-                value = target.checked
-                break
-
-            default:
-                break
+        if (target.multiple) {
+            value = Array.from(target.selectedOptions).map(opt => opt.value)
+        } else {
+            switch (target.type) {
+                case 'number':
+                case 'range':
+                    value = +value || ''
+                    break
+                case 'checkbox':
+                    value = target.checked
+                    break
+            }
         }
 
-        setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
+        setFilterByToEdit(prev => ({ ...prev, [field]: value }))
     }
 
     function onSubmitFilter(ev) {
@@ -34,16 +33,51 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         onSetFilterBy(filterByToEdit)
     }
 
-    const { txt, minSeverity } = filterByToEdit
+    const { txt, minSeverity, sortBy, sortDir, label } = filterByToEdit
+
     return (
         <section className="bug-filter">
-            <h2>Filter</h2>
+            <h2>🔍 Bug Filter</h2>
             <form onSubmit={onSubmitFilter}>
-                <label htmlFor="txt">Text: </label>
-                <input value={txt} onChange={handleChange} type="text" placeholder="By Text" id="txt" name="txt" />
+                <div>
+                    <label htmlFor="txt">Text</label>
+                    <input value={txt} onChange={handleChange} type="text" id="txt" name="txt" placeholder="Search by text" />
+                </div>
 
-                <label htmlFor="minSeverity">Min Severity: </label>
-                <input value={minSeverity} onChange={handleChange} type="number" placeholder="By Min Severity" id="minSeverity" name="minSeverity" />
+                <div>
+                    <label htmlFor="minSeverity">Min Severity</label>
+                    <input value={minSeverity} onChange={handleChange} type="number" id="minSeverity" name="minSeverity" placeholder="Minimum severity" />
+                </div>
+
+                <div>
+                    <label htmlFor="label">Label</label>
+                    <select name="label" id="label" value={label} onChange={handleChange}>
+                        <option value="">All</option>
+                        <option value="critical">Critical</option>
+                        <option value="need-CR">Need CR</option>
+                        <option value="dev-branch">Dev Branch</option>
+                        <option value="network">Network</option>
+                        <option value="bugfix">Bugfix</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label htmlFor="sortBy">Sort By</label>
+                    <select name="sortBy" id="sortBy" value={sortBy} onChange={handleChange}>
+                        <option value="">None</option>
+                        <option value="title">Title</option>
+                        <option value="severity">Severity</option>
+                        <option value="createdAt">Created At</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label htmlFor="sortDir">Direction</label>
+                    <select name="sortDir" id="sortDir" value={sortDir} onChange={handleChange}>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
             </form>
         </section>
     )
