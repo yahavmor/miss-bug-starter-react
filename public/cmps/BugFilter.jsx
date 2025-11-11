@@ -1,11 +1,12 @@
 const { useState, useEffect } = React
 
 export function BugFilter({ filterBy, onSetFilterBy }) {
-    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)
-
+    const [filterByToEdit, setFilterByToEdit] = useState(filterBy)    
+    const [pageNumber, setPageNumber] = useState(filterBy.page || 0);
+    
     useEffect(() => {
-        onSetFilterBy(filterByToEdit)
-    }, [filterByToEdit])
+        onSetFilterBy({ ...filterByToEdit, page: pageNumber })
+    }, [filterByToEdit, pageNumber])
 
     function handleChange({ target }) {
         const field = target.name
@@ -32,6 +33,15 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
         ev.preventDefault()
         onSetFilterBy(filterByToEdit)
     }
+    
+    function goToNextPage() {
+        setPageNumber(prev => prev + 1);
+    }
+
+    function goToPrevPage() {
+        setPageNumber(prev => (prev > 0 ? prev - 1 : 0));
+    }
+
 
     const { txt, minSeverity, sortBy, sortDir, label } = filterByToEdit
 
@@ -78,6 +88,29 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
                         <option value="desc">Descending</option>
                     </select>
                 </div>
+                
+                <div className="pagination">
+                    <button
+                        type="button"
+                        onClick={goToPrevPage}
+                        disabled={pageNumber === 0}
+                        className="pagination-btn"
+                    >
+                        ⬅ Previous
+                    </button>
+
+                    <span className="page-number">Page {pageNumber + 1}</span>
+
+                    <button
+                        type="button"
+                        onClick={goToNextPage}
+                        className="pagination-btn"
+                        disabled = {pageNumber===5}
+                    >
+                        Next ➡
+                    </button>
+                </div>
+
             </form>
         </section>
     )

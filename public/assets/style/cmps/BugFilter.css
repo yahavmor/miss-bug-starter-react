@@ -52,3 +52,37 @@
 .bug-filter button:hover {
     background-color: #005fa3;
 }
+.pagination {
+    grid-column: span 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.pagination-btn {
+    padding: 0.5em 1em;
+    background-color: #0078d4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-btn:hover {
+    background-color: #005fa3;
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-number {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}

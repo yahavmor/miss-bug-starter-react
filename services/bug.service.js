@@ -32,10 +32,14 @@ function query(filterBy = {}) {
       if (a[filterBy.sortBy] < b[filterBy.sortBy]) return -1 * sortDir;
       if (a[filterBy.sortBy] > b[filterBy.sortBy]) return 1 * sortDir;
       return 0;
-    });
+  });
   }
+  const pageSize = 5;
+  const page = filterBy.page || 0;
+  const startIdx = page * pageSize;
+  const slicedBugs = filteredBugs.slice(startIdx, startIdx + pageSize);
 
-  return Promise.resolve(filteredBugs);
+return Promise.resolve(slicedBugs);
 }
 
 function getById(id) {
@@ -53,7 +57,6 @@ function remove(id) {
 }
 
 function save(bug) {
-  console.log(bug)
   if (bug._id) {
     const idx = bugs.findIndex(b => b._id === bug._id);
     if (idx !== -1) {
