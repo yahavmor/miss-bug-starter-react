@@ -6,8 +6,11 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
 
     
     useEffect(() => {
-        onSetFilterBy({ ...filterByToEdit, page: pageNumber })
-    }, [filterByToEdit, pageNumber])
+        setPageNumber(0);
+        onSetFilterBy({ ...filterByToEdit, page: 0 });
+    }, [filterByToEdit]);
+
+
 
     function handleChange({ target }) {
         const field = target.name
