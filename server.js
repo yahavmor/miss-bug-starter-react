@@ -20,7 +20,7 @@ app.get('/api/bug/:id', (req, res) => {
     const { id } = req.params;
     let visitedBugs = req.cookies.visitedBugs ? req.cookies.visitedBugs : [];
     if (!visitedBugs.includes(id)) visitedBugs.push(id);
-    if (visitedBugs.length > 3) return res.status(401).send('Wait for a bit') 
+    if (visitedBugs.length > 3) return res.status(429).send('Please wait for 7 seconds')
 
       res.cookie('visitedBugs', visitedBugs, { maxAge: 7000 });
       console.log('User visited at the following bugs:', visitedBugs);

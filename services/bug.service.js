@@ -10,6 +10,7 @@ export const bugService = {
 
 const bugs = utilService.readJsonFile('bug.json');
 
+
 function query(filterBy = {}) {
   let filteredBugs = bugs;
 
@@ -34,12 +35,15 @@ function query(filterBy = {}) {
       return 0;
   });
   }
-  const pageSize = 5;
+  const pageSize = 7;
   const page = filterBy.page || 0;
   const startIdx = page * pageSize;
   const slicedBugs = filteredBugs.slice(startIdx, startIdx + pageSize);
 
-return Promise.resolve(slicedBugs);
+return Promise.resolve({
+slicedBugs,
+totalPages: Math.ceil(filteredBugs.length / pageSize)
+});
 }
 
 function getById(id) {

@@ -13,8 +13,7 @@ export const bugService = {
 function query(filterBy = {}) {
   return axios.get(BASE_URL, { params: filterBy })
     .then(res => res.data)
-    .catch(err => {
-      console.error('Error loading bugs:', err);
+    .catch(err => {  
       throw err;
     });
 }
@@ -23,6 +22,9 @@ function getById(id) {
   return axios.get(`${BASE_URL}/${id}`)
     .then(res => res.data)
     .catch(err => {
+      if (err.response && err.response.status === 429) {
+        alert('You have visited too many bugs. Please wait 7 seconds.');
+      }
       console.error(`Error getting bug ${id}:`, err);
       throw err;
     });

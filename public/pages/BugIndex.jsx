@@ -1,4 +1,3 @@
-const { useState, useEffect } = React
 
 // import { bugService } from '../services/bug.service.local.js'
 
@@ -10,16 +9,23 @@ import { BugList } from '../cmps/BugList.jsx'
 
 
 export function BugIndex() {
+    const { useState, useEffect } = React
     const [bugs, setBugs] = useState(null)
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
+    const [lastPage , setLastPage] = useState(null)
+    
 
     useEffect(loadBugs, [filterBy])
 
     function loadBugs() {
         bugService.query(filterBy)
-            .then(setBugs)
-            .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`))
+            .then(({ slicedBugs, totalPages }) => {
+                setBugs(slicedBugs);
+                setLastPage(totalPages - 1)
+            })
+            .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`));
     }
+
 
     function onRemoveBug(bugId) {
         bugService.remove(bugId)
@@ -67,7 +73,7 @@ export function BugIndex() {
 
     return <section className="bug-index main-content">
         
-        <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+        <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} lastPage={lastPage} />
         <header>
             <h3>Bug List</h3>
             <button onClick={onAddBug}>Add Bug</button>
@@ -79,3 +85,4 @@ export function BugIndex() {
             onEditBug={onEditBug} />
     </section>
 }
+

@@ -1,8 +1,9 @@
 const { useState, useEffect } = React
 
-export function BugFilter({ filterBy, onSetFilterBy }) {
+export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)    
     const [pageNumber, setPageNumber] = useState(filterBy.page || 0);
+
     
     useEffect(() => {
         onSetFilterBy({ ...filterByToEdit, page: pageNumber })
@@ -101,17 +102,20 @@ export function BugFilter({ filterBy, onSetFilterBy }) {
 
                     <span className="page-number">Page {pageNumber + 1}</span>
 
-                    <button
+                    
+                <button
                         type="button"
                         onClick={goToNextPage}
                         className="pagination-btn"
-                        disabled = {pageNumber===5}
+                        disabled={pageNumber === lastPage}
                     >
                         Next ➡
-                    </button>
+                </button>
+
                 </div>
 
             </form>
         </section>
     )
 }
+
