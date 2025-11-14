@@ -44,7 +44,6 @@ app.delete('/api/bug/:id', (req, res) => {
 app.post('/api/bug', (req, res) => {
   const bug = req.body;
   bug.id = utilService.makeId();
-  console.log(bug)
   bugService.save(bug)
     .then(savedBug => res.send(savedBug))
     .catch(err => res.status(500).send('Failed to create bug'));

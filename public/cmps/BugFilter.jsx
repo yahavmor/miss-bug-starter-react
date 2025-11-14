@@ -2,34 +2,25 @@ const { useState, useEffect } = React
 
 export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
     const [filterByToEdit, setFilterByToEdit] = useState(filterBy)    
-    const [pageNumber, setPageNumber] = useState(filterBy.page || 0);
+    const [pageNumber, setPageNumber] = useState(filterBy.page);
 
     
     useEffect(() => {
-        setPageNumber(0);
-        onSetFilterBy({ ...filterByToEdit, page: 0 });
-    }, [filterByToEdit]);
-
+        onSetFilterBy({ ...filterByToEdit, page: pageNumber });
+    }, [filterByToEdit, pageNumber]);
+    useEffect(()=>{
+        setPageNumber(0)
+    },[filterByToEdit])
 
 
     function handleChange({ target }) {
         const field = target.name
         let value = target.value
-
-        if (target.multiple) {
-            value = Array.from(target.selectedOptions).map(opt => opt.value)
-        } else {
             switch (target.type) {
                 case 'number':
-                case 'range':
                     value = +value || ''
                     break
-                case 'checkbox':
-                    value = target.checked
-                    break
             }
-        }
-
         setFilterByToEdit(prev => ({ ...prev, [field]: value }))
     }
 
@@ -39,11 +30,11 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
     }
     
     function goToNextPage() {
-        setPageNumber(prev => prev + 1);
+        setPageNumber(prev =>(prev<lastPage ? prev + 1 : 0));
     }
 
     function goToPrevPage() {
-        setPageNumber(prev => (prev > 0 ? prev - 1 : 0));
+        setPageNumber(prev => (prev > 0 ? prev - 1 : lastPage));
     }
 
 
@@ -60,7 +51,7 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
 
                 <div>
                     <label htmlFor="minSeverity">Min Severity</label>
-                    <input value={minSeverity} onChange={handleChange} type="number" id="minSeverity" name="minSeverity" placeholder="Minimum severity" />
+                    <input value={minSeverity} onChange={handleChange} type="number" id="minSeverity" name="minSeverity" placeholder="Minimum severity" min="0" />
                 </div>
 
                 <div>
@@ -97,7 +88,6 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
                     <button
                         type="button"
                         onClick={goToPrevPage}
-                        disabled={pageNumber === 0}
                         className="pagination-btn"
                     >
                         ⬅ Previous
@@ -110,7 +100,6 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
                         type="button"
                         onClick={goToNextPage}
                         className="pagination-btn"
-                        disabled={pageNumber === lastPage}
                     >
                         Next ➡
                 </button>
@@ -121,4 +110,3 @@ export function BugFilter({ filterBy, onSetFilterBy , lastPage}) {
         </section>
     )
 }
-

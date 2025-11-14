@@ -76,13 +76,8 @@
     background-color: #005fa3;
 }
 
-.pagination-btn:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
 .page-number {
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.3em;
     color: #333;
 }

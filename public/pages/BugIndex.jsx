@@ -1,9 +1,6 @@
-
 // import { bugService } from '../services/bug.service.local.js'
-
 import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { bugService } from '../services/bug.service.remote.js'
-
 import { BugFilter } from '../cmps/BugFilter.jsx'
 import { BugList } from '../cmps/BugList.jsx'
 
@@ -38,12 +35,7 @@ export function BugIndex() {
     }
 
     function onAddBug() {
-        const bug = {
-            title: prompt('Bug title?', 'Bug ' + Date.now()),
-            severity: +prompt('Bug severity?', 3),
-            description: prompt('Bug description?', 'Describe the bug here')
-        }
-
+        const bug  = bugService.getBugfromUser()
         bugService.save(bug)
             .then(savedBug => {
                 setBugs([...bugs, savedBug])
@@ -85,4 +77,3 @@ export function BugIndex() {
             onEditBug={onEditBug} />
     </section>
 }
-

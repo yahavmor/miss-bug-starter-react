@@ -7,7 +7,8 @@ export const bugService = {
   getById,
   remove,
   save,
-  getDefaultFilter
+  getDefaultFilter,
+  getBugfromUser
 };
 
 function query(filterBy = {}) {
@@ -58,5 +59,22 @@ function save(bug) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' }
+    return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' , page:0}
+}
+
+function getBugfromUser() {
+    const title = prompt('Bug title?', 'Bug ' + Date.now());
+    let severity = +prompt('Bug severity? (0 or higher)', 3);
+    if (isNaN(severity) || severity < 0) severity = 0;
+    const description = prompt('Bug description?', 'Describe the bug here');
+    const labels = ['critical', 'need-CR', 'bugfix'];
+    const bug = {
+        title: title || 'Untitled Bug',
+        severity,
+        description: description || '',
+        labels: labels, 
+        createdAt: Date.now()
+    };
+
+    return bug;
 }

@@ -5,7 +5,6 @@ export const bugService = {
   getById,
   remove,
   save,
-  getDefaultFilter
 };
 
 const bugs = utilService.readJsonFile('bug.json');
@@ -13,7 +12,6 @@ const bugs = utilService.readJsonFile('bug.json');
 
 function query(filterBy = {}) {
   let filteredBugs = bugs;
-
   if (filterBy.txt) {
     const regex = new RegExp(filterBy.txt, 'i');
     filteredBugs = filteredBugs.filter(bug => regex.test(bug.title));
@@ -36,7 +34,7 @@ function query(filterBy = {}) {
   });
   }
   const pageSize = 7;
-  const page = filterBy.page || 0;
+  const page = filterBy.page ;
   const startIdx = page * pageSize;
   const slicedBugs = filteredBugs.slice(startIdx, startIdx + pageSize);
 
@@ -78,6 +76,3 @@ function save(bug) {
 }
 
 
-function getDefaultFilter() {
-  return { txt: '', minSeverity: 0 };
-}
