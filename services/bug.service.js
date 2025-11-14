@@ -1,4 +1,5 @@
 import { utilService } from '../public/services/util.service.js';
+import fs from 'fs'
 
 export const bugService = {
   query,
@@ -7,7 +8,7 @@ export const bugService = {
   save,
 };
 
-const bugs = utilService.readJsonFile('bug.json');
+const bugs = readJsonFile('bug.json');
 
 
 function query(filterBy = {}) {
@@ -54,7 +55,7 @@ function remove(id) {
   if (bugIdx === -1) return Promise.reject('Bug not found');
 
   const removedBug = bugs.splice(bugIdx, 1)[0];
-  utilService.writeJsonFile('bug.json', bugs);
+  writeJsonFile('bug.json', bugs);
   return Promise.resolve(removedBug);
 }
 
@@ -71,8 +72,17 @@ function save(bug) {
     bugs.push(bug);
   }
 
-  utilService.writeJsonFile('bug.json', bugs);
+  writeJsonFile('bug.json', bugs);
   return Promise.resolve(bug);
 }
+
+function readJsonFile(filePath) {
+  const data = fs.readFileSync(filePath, 'utf8');
+  return JSON.parse(data);
+}     
+
+function writeJsonFile(filePath, data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
+} 
 
 

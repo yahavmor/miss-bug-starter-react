@@ -12,18 +12,6 @@
     ]
   },
   {
-    "_id": "F30NO42",
-    "title": "Bug Issue 2",
-    "description": "Description for bug 2",
-    "severity": 1,
-    "createdAt": 1762778868770,
-    "labels": [
-      "camera",
-      "bugfix",
-      "touch"
-    ]
-  },
-  {
     "_id": "UVJERLN",
     "title": "Bug Issue 3",
     "description": "Description for bug 3",
@@ -85,26 +73,14 @@
   },
   {
     "_id": "4641X0M",
-    "title": "Bug Issue 8",
-    "description": "Description for bug 8",
-    "severity": 2,
+    "title": "fa",
+    "description": "teq",
+    "severity": 56234,
     "createdAt": 1762778874770,
     "labels": [
       "audio",
       "infra-team",
       "network"
-    ]
-  },
-  {
-    "_id": "F7ESM4S",
-    "title": "harddrive problem",
-    "description": "i dont know how to fix it ",
-    "severity": 667,
-    "createdAt": 1762778875770,
-    "labels": [
-      "need-CR",
-      "infra-team",
-      "dev-branch"
     ]
   },
   {
@@ -168,18 +144,6 @@
     ]
   },
   {
-    "_id": "N5ILMDW",
-    "title": "Bug Issue 15",
-    "description": "Description for bug 15",
-    "severity": 1,
-    "createdAt": 1762778881770,
-    "labels": [
-      "touch",
-      "need-CR",
-      "critical"
-    ]
-  },
-  {
     "_id": "NBFSUCS",
     "title": "Bug Issue 16",
     "description": "Description for bug 16",
@@ -204,18 +168,6 @@
     ]
   },
   {
-    "_id": "145UKAW",
-    "title": "Bug Issue 18",
-    "description": "Description for bug 18",
-    "severity": 1,
-    "createdAt": 1762778884770,
-    "labels": [
-      "network",
-      "startup",
-      "camera"
-    ]
-  },
-  {
     "_id": "MDDVUFE",
     "title": "Bug Issue 19",
     "description": "Description for bug 19",
@@ -237,30 +189,6 @@
       "camera",
       "critical",
       "UI"
-    ]
-  },
-  {
-    "_id": "MAFXT8D",
-    "title": "Bug Issue 21",
-    "description": "Description for bug 21",
-    "severity": 1,
-    "createdAt": 1762778887770,
-    "labels": [
-      "infra-team",
-      "kernel",
-      "touch"
-    ]
-  },
-  {
-    "_id": "9A3XE00",
-    "title": "Bug Issue 22",
-    "description": "Description for bug 22",
-    "severity": 1,
-    "createdAt": 1762778888770,
-    "labels": [
-      "need-CR",
-      "UI",
-      "bugfix"
     ]
   },
   {
@@ -336,18 +264,6 @@
     ]
   },
   {
-    "_id": "PAVB8UB",
-    "title": "Bug Issue 29",
-    "description": "Description for bug 29",
-    "severity": 1,
-    "createdAt": 1762778895770,
-    "labels": [
-      "critical",
-      "kernel",
-      "UI"
-    ]
-  },
-  {
     "_id": "NAMWQPN",
     "title": "Bug Issue 30",
     "description": "Description for bug 30",
@@ -358,5 +274,18 @@
       "security",
       "critical"
     ]
+  },
+  {
+    "title": "Bug 1763120653636",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763120657248,
+    "id": "jESPLU",
+    "_id": "0YzO0f"
   }
 ]
