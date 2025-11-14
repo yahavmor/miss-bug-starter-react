@@ -97,9 +97,9 @@
   },
   {
     "_id": "F7ESM4S",
-    "title": "Bug Issue 9",
-    "description": "Description for bug 9",
-    "severity": 1,
+    "title": "harddrive problem",
+    "description": "i dont know how to fix it ",
+    "severity": 667,
     "createdAt": 1762778875770,
     "labels": [
       "need-CR",
