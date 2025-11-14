@@ -3,15 +3,17 @@ import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 import { bugService } from '../services/bug.service.remote.js'
 import { BugFilter } from '../cmps/BugFilter.jsx'
 import { BugList } from '../cmps/BugList.jsx'
+import { utilService } from '../services/util.service.js'
 
 
 export function BugIndex() {
-    const { useState, useEffect } = React
+    const { useState, useEffect , useRef} = React
     const [bugs, setBugs] = useState(null)
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
     const [lastPage , setLastPage] = useState(null)
-    
 
+    const debounced = useRef(utilService.debounce(onSetFilterBy, 500)).current
+     
     useEffect(loadBugs, [filterBy])
 
     function loadBugs() {
@@ -65,7 +67,7 @@ export function BugIndex() {
 
     return <section className="bug-index main-content">
         
-        <BugFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} lastPage={lastPage} />
+        <BugFilter filterBy={filterBy} onSetFilterBy={debounced} lastPage={lastPage} />
         <header>
             <h3>Bug List</h3>
             <button onClick={onAddBug}>Add Bug</button>

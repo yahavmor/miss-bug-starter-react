@@ -7,7 +7,8 @@ export const utilService = {
     loadFromStorage,
     saveToStorage,
     readJsonFile,
-    writeJsonFile
+    writeJsonFile,
+    debounce
 }
 
 function makeId(length = 6) {
@@ -56,3 +57,10 @@ function writeJsonFile(filePath, data) {
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8');
 } 
 
+function debounce(func, delay) {
+  let timer;
+  return (...args) =>{
+    if(timer) clearTimeout(timer); 
+    timer = setTimeout(()=>func(...args),delay)
+  };
+}
