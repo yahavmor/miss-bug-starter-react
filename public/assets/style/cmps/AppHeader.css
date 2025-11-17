@@ -16,8 +16,9 @@
 
 .app-header nav {
     display: flex;
-    gap: 1em;
+    gap: 4em;
     justify-self: end;
+    margin-right: 3em;
 }
 
 .app-header nav a {
