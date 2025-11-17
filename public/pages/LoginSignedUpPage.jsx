@@ -29,7 +29,7 @@ authService.login(credentials)
 .then(user => {
 setLoggedinUser(user)
 showSuccessMsg('Logged in successfully')
-navigate('/car')
+navigate('/bug')
 })
 .catch(err => { 
 console.log(err)
@@ -42,7 +42,7 @@ authService.signup(credentials)
 .then(user => {
 setLoggedinUser(user)
 showSuccessMsg('Signed in successfully')
-navigate('/car')
+navigate('/bug')
 })
 .catch(err => { 
 console.log(err)

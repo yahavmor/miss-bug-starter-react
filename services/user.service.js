@@ -1,7 +1,9 @@
 import fs from 'fs'
-import { utilService } from './util.service.js'
+import { bugService } from './bug.service.js'
+import { utilService } from '../public/services/util.service.js'
 
-const users = utilService.readJsonFile('data/user.json')
+
+const users = bugService.readJsonFile('user.json')
 
 export const userService = {
 query,
@@ -42,7 +44,7 @@ users = users.filter(user => user._id !== userId)
 return _saveUsersToFile()
 }
 
-function add(user) {
+function add(user) { 
 
 return getByUsername(user.username) //* Check if username exists...
 .then(existingUser => {
@@ -65,7 +67,7 @@ return user
 function _saveUsersToFile() {
 return new Promise((resolve, reject) => {
 const usersStr = JSON.stringify(users, null, 4)
-fs.writeFile('data/user.json', usersStr, err => {
+fs.writeFile('user.json', usersStr, err => {
 if (err) {
 return console.log(err)
 }

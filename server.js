@@ -1,7 +1,10 @@
 import express from 'express';
 import { bugService } from './services/bug.service.js';
 import { utilService } from './public/services/util.service.js';
-import cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser'
+import { userService } from './services/user.service.js';
+import { authService } from './services/auth.service.js';
+
 
 const app = express();
 app.use(express.static('public'));
@@ -56,5 +59,35 @@ app.put('/api/bug/:id', (req, res) => {
     .then(savedBug => res.send(savedBug))
     .catch(err => res.status(404).send('Bug not found for update'));
 });
+app.post('/api/auth/signup', (req, res) => {
+  const {username , password , fullname}=  req.body
+  userService.add({username , password , fullname})
+    .then(user => {
+      const loginToken = authService.getLoginToken(user)
+      res.cookie('loginToken', loginToken)
+      res.send(user)
+    })
+    .catch(err => res.status(400).send('Cannot signup'));
+});
+app.post('/api/auth/login', (req, res) => {
+  const { username, password } = req.body;
+
+  authService.checkLogin({ username, password })
+    .then(user => {
+      const loginToken = authService.getLoginToken(user)
+      res.cookie('loginToken', loginToken)
+      res.send(user)              
+    })
+    .catch(err => {
+      res.status(401).send('Invalid Credentials')
+    })
+})
+
+app.post('/api/auth/logout',(req,res)=>{
+  res.clearCookie('loginToken')
+  res.send('logged-out')
+})
+
+
 
 app.listen(3030, () => console.log('Server ready at port 3030'));

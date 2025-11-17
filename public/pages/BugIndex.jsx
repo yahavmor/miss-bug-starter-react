@@ -12,7 +12,7 @@ export function BugIndex() {
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
     const [lastPage , setLastPage] = useState(null)
 
-    const debounced = useRef(utilService.debounce(onSetFilterBy, 500)).current
+    const debounced = useRef(utilService.debounce(onSetFilterBy, 200)).current
      
     useEffect(loadBugs, [filterBy])
 

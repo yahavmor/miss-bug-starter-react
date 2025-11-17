@@ -6,6 +6,8 @@ export const bugService = {
   getById,
   remove,
   save,
+  readJsonFile,
+  writeJsonFile
 };
 
 const bugs = readJsonFile('bug.json');

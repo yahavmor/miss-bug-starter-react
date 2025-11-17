@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "u1000",
+        "username": "admin",
+        "fullname": "Admin Adminov",
+        "password": "admin",
+        "score": 100,
+        "isAdmin": true
+    },
+    {
+        "_id": "u1001",
+        "username": "nina",
+        "fullname": "Nina Simantov",
+        "password": "nina",
+        "score": 100
+    },
+    {
+        "_id": "u1002",
+        "username": "popo",
+        "fullname": "Popo Popova",
+        "password": "popo",
+        "score": 200
+    },
+    {
+        "username": "2",
+        "password": "2",
+        "fullname": "3",
+        "_id": "9xtvMG",
+        "score": 100
+    },
+    {
+        "username": "te",
+        "password": "et",
+        "fullname": "qq",
+        "_id": "6AaOCz",
+        "score": 100
+    }
+]
