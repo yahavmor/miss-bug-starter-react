@@ -88,6 +88,4 @@ app.post('/api/auth/logout',(req,res)=>{
   res.send('logged-out')
 })
 
-
-
 app.listen(3030, () => console.log('Server ready at port 3030'));

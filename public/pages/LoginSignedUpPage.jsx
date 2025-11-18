@@ -26,7 +26,7 @@ isSignup ? signup(credentials) : login(credentials)
 
 function login(credentials) {
 authService.login(credentials)
-.then(user => {
+.then(user => { 
 setLoggedinUser(user)
 showSuccessMsg('Logged in successfully')
 navigate('/bug')

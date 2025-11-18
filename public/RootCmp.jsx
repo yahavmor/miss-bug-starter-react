@@ -16,10 +16,11 @@ import { UserDetails } from './pages/UserDetails.jsx'
 
 export function App() {
     const [loggedinUser,setLoggedinUser] = useState(authService.getLoggedinUser())
+    console.log(loggedinUser)
     return <Router>
         <div className="app-wrapper">
             <UserMsg />
-            <AppHeader />
+            <AppHeader loggedinUser={loggedinUser} setLoggedinUser={setLoggedinUser} />
             <main className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
