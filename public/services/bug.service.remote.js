@@ -59,7 +59,7 @@ function save(bug) {
 }
 
 function getDefaultFilter() {
-    return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' , page:0}
+    return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' , page:0, creatorId:''}
 }
 
 function getBugfromUser(loggedinUser) {

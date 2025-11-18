@@ -9,19 +9,11 @@
       "critical",
       "startup",
       "camera"
-    ]
-  },
-  {
-    "_id": "F30NO42",
-    "title": "Bug Issue 2",
-    "description": "Description for bug 2",
-    "severity": 1,
-    "createdAt": 1762778868770,
-    "labels": [
-      "camera",
-      "bugfix",
-      "touch"
-    ]
+    ],
+    "creator": {
+      "_id": "u1000",
+      "fullname": "Admin Adminov"
+    }
   },
   {
     "_id": "UVJERLN",
@@ -33,7 +25,11 @@
       "security",
       "kernel",
       "startup"
-    ]
+    ],
+    "creator": {
+      "_id": "u1001",
+      "fullname": "Nina Simantov"
+    }
   },
   {
     "_id": "7XKGDPZ",
@@ -45,7 +41,11 @@
       "startup",
       "infra-team",
       "touch"
-    ]
+    ],
+    "creator": {
+      "_id": "u1002",
+      "fullname": "Popo Popova"
+    }
   },
   {
     "_id": "W37KMC4",
@@ -57,7 +57,11 @@
       "security",
       "dev-branch",
       "camera"
-    ]
+    ],
+    "creator": {
+      "_id": "9xtvMG",
+      "fullname": "3"
+    }
   },
   {
     "_id": "O2LSOPG",
@@ -69,7 +73,11 @@
       "critical",
       "kernel",
       "bugfix"
-    ]
+    ],
+    "creator": {
+      "_id": "6AaOCz",
+      "fullname": "qq"
+    }
   },
   {
     "_id": "0IYYYHO",
@@ -81,31 +89,27 @@
       "network",
       "startup",
       "critical"
-    ]
+    ],
+    "creator": {
+      "_id": "c51b10",
+      "fullname": "4456"
+    }
   },
   {
     "_id": "4641X0M",
-    "title": "Bug Issue 8",
-    "description": "Description for bug 8",
-    "severity": 2,
+    "title": "fa",
+    "description": "teq",
+    "severity": 56234,
     "createdAt": 1762778874770,
     "labels": [
       "audio",
       "infra-team",
       "network"
-    ]
-  },
-  {
-    "_id": "F7ESM4S",
-    "title": "Bug Issue 9",
-    "description": "Description for bug 9",
-    "severity": 1,
-    "createdAt": 1762778875770,
-    "labels": [
-      "need-CR",
-      "infra-team",
-      "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "iLxFpQ",
+      "fullname": "462426"
+    }
   },
   {
     "_id": "U4U6DXQ",
@@ -117,19 +121,11 @@
       "bugfix",
       "startup",
       "need-CR"
-    ]
-  },
-  {
-    "_id": "6DF10YG",
-    "title": "Bug Issue 11",
-    "description": "Description for bug 11",
-    "severity": 2,
-    "createdAt": 1762778877770,
-    "labels": [
-      "kernel",
-      "startup",
-      "camera"
-    ]
+    ],
+    "creator": {
+      "_id": "AaWyWr",
+      "fullname": "r"
+    }
   },
   {
     "_id": "8E1KLX5",
@@ -141,7 +137,11 @@
       "kernel",
       "dev-branch",
       "critical"
-    ]
+    ],
+    "creator": {
+      "_id": "u1000",
+      "fullname": "Admin Adminov"
+    }
   },
   {
     "_id": "8GF0DNV",
@@ -153,7 +153,11 @@
       "optimization",
       "network",
       "startup"
-    ]
+    ],
+    "creator": {
+      "_id": "u1001",
+      "fullname": "Nina Simantov"
+    }
   },
   {
     "_id": "O52M78N",
@@ -165,19 +169,11 @@
       "need-CR",
       "kernel",
       "bugfix"
-    ]
-  },
-  {
-    "_id": "N5ILMDW",
-    "title": "Bug Issue 15",
-    "description": "Description for bug 15",
-    "severity": 1,
-    "createdAt": 1762778881770,
-    "labels": [
-      "touch",
-      "need-CR",
-      "critical"
-    ]
+    ],
+    "creator": {
+      "_id": "u1002",
+      "fullname": "Popo Popova"
+    }
   },
   {
     "_id": "NBFSUCS",
@@ -189,7 +185,11 @@
       "dev-branch",
       "UI",
       "optimization"
-    ]
+    ],
+    "creator": {
+      "_id": "9xtvMG",
+      "fullname": "3"
+    }
   },
   {
     "_id": "M12PZTM",
@@ -201,19 +201,11 @@
       "optimization",
       "camera",
       "kernel"
-    ]
-  },
-  {
-    "_id": "145UKAW",
-    "title": "Bug Issue 18",
-    "description": "Description for bug 18",
-    "severity": 1,
-    "createdAt": 1762778884770,
-    "labels": [
-      "network",
-      "startup",
-      "camera"
-    ]
+    ],
+    "creator": {
+      "_id": "6AaOCz",
+      "fullname": "qq"
+    }
   },
   {
     "_id": "MDDVUFE",
@@ -225,7 +217,11 @@
       "critical",
       "need-CR",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "c51b10",
+      "fullname": "4456"
+    }
   },
   {
     "_id": "T21CVSB",
@@ -237,31 +233,11 @@
       "camera",
       "critical",
       "UI"
-    ]
-  },
-  {
-    "_id": "MAFXT8D",
-    "title": "Bug Issue 21",
-    "description": "Description for bug 21",
-    "severity": 1,
-    "createdAt": 1762778887770,
-    "labels": [
-      "infra-team",
-      "kernel",
-      "touch"
-    ]
-  },
-  {
-    "_id": "9A3XE00",
-    "title": "Bug Issue 22",
-    "description": "Description for bug 22",
-    "severity": 1,
-    "createdAt": 1762778888770,
-    "labels": [
-      "need-CR",
-      "UI",
-      "bugfix"
-    ]
+    ],
+    "creator": {
+      "_id": "iLxFpQ",
+      "fullname": "462426"
+    }
   },
   {
     "_id": "BV3WR8S",
@@ -273,7 +249,11 @@
       "camera",
       "audio",
       "UI"
-    ]
+    ],
+    "creator": {
+      "_id": "AaWyWr",
+      "fullname": "r"
+    }
   },
   {
     "_id": "93G440N",
@@ -285,7 +265,11 @@
       "need-CR",
       "security",
       "bugfix"
-    ]
+    ],
+    "creator": {
+      "_id": "BELRWY",
+      "fullname": "wr"
+    }
   },
   {
     "_id": "8WQT546",
@@ -297,7 +281,11 @@
       "kernel",
       "startup",
       "infra-team"
-    ]
+    ],
+    "creator": {
+      "_id": "u1000",
+      "fullname": "Admin Adminov"
+    }
   },
   {
     "_id": "1K7ZHP8",
@@ -309,7 +297,11 @@
       "network",
       "security",
       "kernel"
-    ]
+    ],
+    "creator": {
+      "_id": "u1001",
+      "fullname": "Nina Simantov"
+    }
   },
   {
     "_id": "U8N9USA",
@@ -321,7 +313,11 @@
       "startup",
       "UI",
       "dev-branch"
-    ]
+    ],
+    "creator": {
+      "_id": "u1002",
+      "fullname": "Popo Popova"
+    }
   },
   {
     "_id": "OM6ICD3",
@@ -333,19 +329,11 @@
       "startup",
       "network",
       "dev-branch"
-    ]
-  },
-  {
-    "_id": "PAVB8UB",
-    "title": "Bug Issue 29",
-    "description": "Description for bug 29",
-    "severity": 1,
-    "createdAt": 1762778895770,
-    "labels": [
-      "critical",
-      "kernel",
-      "UI"
-    ]
+    ],
+    "creator": {
+      "_id": "9xtvMG",
+      "fullname": "3"
+    }
   },
   {
     "_id": "NAMWQPN",
@@ -357,6 +345,108 @@
       "touch",
       "security",
       "critical"
-    ]
+    ],
+    "creator": {
+      "_id": "6AaOCz",
+      "fullname": "qq"
+    }
+  },
+  {
+    "_id": "0YzO0f-1",
+    "title": "Bug 1763120653636",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763120657248,
+    "creator": {
+      "_id": "AaWyWr",
+      "fullname": "r"
+    }
+  },
+  {
+    "_id": "0YzO0f-2",
+    "title": "Bug 1763120653636",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763120657248,
+    "creator": {
+      "_id": "BELRWY",
+      "fullname": "wr"
+    }
+  },
+  {
+    "_id": "0YzO0f-3",
+    "title": "Bug 1763120653636",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763120657248,
+    "creator": {
+      "_id": "9xtvMG",
+      "fullname": "3"
+    }
+  },
+  {
+    "_id": "8NnCDg",
+    "title": "Bug 1763462962769",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763462964909,
+    "creator": {
+      "_id": "BELRWY",
+      "fullname": "wr"
+    }
+  },
+  {
+    "title": "Bug 1763463521325",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763463523685,
+    "creator": {
+      "_id": "u1001",
+      "fullname": "Nina Simantov"
+    },
+    "id": "HHJ47M",
+      "fullname": "Nina eww"
+  },
+  {
+    "title": "Untitled Bug",
+    "severity": 0,
+    "description": "",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763463869805,
+    "creator": {
+      "_id": "74VoHD",
+      "fullname": "pipa"
+    },
+    "id": "8BCQ8o",
+      "fullname": "Nina gd"
   }
 ]
