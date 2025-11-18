@@ -4,7 +4,6 @@ const { useParams, useNavigate } = ReactRouterDOM
 import { userService } from "../services/user.service.js"
 
 export function UserDetails() {
-
 const [user, setUser] = useState(null)
 const params = useParams()
 const navigate = useNavigate()
@@ -23,7 +22,7 @@ navigate('/')
 }
 
 function onBack() {
-navigate('/')
+navigate('/bug')
 }
 
 if (!user) return <div>Loading...</div>

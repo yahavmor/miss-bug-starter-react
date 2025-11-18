@@ -14,9 +14,10 @@ return axios.get(BASE_URL)
 }
 
 function getById(userId) {
-return axios.get(BASE_URL + userId)
-.then(res => res.data)
+  return axios.get(BASE_URL + userId)
+  .then(res => res.data)
 }
+
 
 function getEmptyCredentials() {
 return {

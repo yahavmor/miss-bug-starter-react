@@ -87,5 +87,15 @@ app.post('/api/auth/logout',(req,res)=>{
   res.clearCookie('loginToken')
   res.send('logged-out')
 })
+app.get('/api/user/:id', (req, res) => {
+  const { id } = req.params
+  userService.getById(id)
+    .then(user => {
+      if (!user) return res.status(404).send('User not found')
+      res.send(user)
+    })
+    .catch(err => res.status(500).send('Failed to get user'))
+})
+
 
 app.listen(3030, () => console.log('Server ready at port 3030'));

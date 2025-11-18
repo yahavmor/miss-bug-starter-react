@@ -1,0 +1,52 @@
+/* UserDetails.css */
+
+.user-details {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.user-details h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.user-details pre {
+  background: #f4f6f8;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.user-details p {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.user-details button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.6rem 1.2rem;
+  background: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.user-details button:hover {
+  background: #2980b9;
+}

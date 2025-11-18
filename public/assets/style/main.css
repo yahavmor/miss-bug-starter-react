@@ -16,4 +16,5 @@
 @import './cmps/BugFilter.css';
 @import './cmps/BugPreview.css';
 
-@import './cmps/LoginSignedUpPage.css'
+@import './cmps/LoginSignedUpPage.css';
+@import './cmps/userDetails.css'
