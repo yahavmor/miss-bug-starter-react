@@ -24,7 +24,7 @@ export function App() {
             <main className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/bug" element={<BugIndex />} />
+                    <Route path="/bug" element={<BugIndex loggedinUser={loggedinUser} setLoggedinUser={setLoggedinUser}/>} />
                     <Route path="/bug/:bugId" element={<BugDetails />} />
                     <Route path="/about" element={<AboutUs />} />
                     <Route path="/auth" element={<LoginSignup setLoggedinUser={setLoggedinUser} />} />

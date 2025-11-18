@@ -62,19 +62,23 @@ function getDefaultFilter() {
     return { txt: '', minSeverity: 0, sortBy: 'severity', sortDir: 'asc' , page:0}
 }
 
-function getBugfromUser() {
-    const title = prompt('Bug title?', 'Bug ' + Date.now());
-    let severity = +prompt('Bug severity? (0 or higher)', 3);
-    if (isNaN(severity) || severity < 0) severity = 0;
-    const description = prompt('Bug description?', 'Describe the bug here');
-    const labels = ['critical', 'need-CR', 'bugfix'];
-    const bug = {
-        title: title || 'Untitled Bug',
-        severity,
-        description: description || '',
-        labels: labels, 
-        createdAt: Date.now()
-    };
+function getBugfromUser(loggedinUser) {
+    const title = prompt('Bug title?', 'Bug ' + Date.now()) || 'Untitled Bug'
+    let severity = +prompt('Bug severity? (0 or higher)', 3)
+    if (isNaN(severity) || severity < 0) severity = 0
+    const description = prompt('Bug description?', 'Describe the bug here') || ''
+    const labels = ['critical', 'need-CR', 'bugfix']
 
-    return bug;
+    return {
+        title,
+        severity,
+        description,
+        labels,
+        createdAt: Date.now(),
+        creator: {
+            _id: loggedinUser._id,
+            fullname: loggedinUser.fullname,
+        }
+    }
 }
+

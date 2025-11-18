@@ -6,7 +6,7 @@ import { BugList } from '../cmps/BugList.jsx'
 import { utilService } from '../services/util.service.js'
 
 
-export function BugIndex() {
+export function BugIndex({ loggedinUser, setLoggedinUser }) {
     const { useState, useEffect , useRef} = React
     const [bugs, setBugs] = useState(null)
     const [filterBy, setFilterBy] = useState(bugService.getDefaultFilter())
@@ -37,7 +37,8 @@ export function BugIndex() {
     }
 
     function onAddBug() {
-        const bug  = bugService.getBugfromUser()
+        if(!loggedinUser) return alert('Please login or sign-up to add bugs')
+        const bug  = bugService.getBugfromUser(loggedinUser)
         bugService.save(bug)
             .then(savedBug => {
                 setBugs([...bugs, savedBug])
@@ -78,6 +79,8 @@ export function BugIndex() {
         <BugList 
             bugs={bugs} 
             onRemoveBug={onRemoveBug} 
-            onEditBug={onEditBug} />
+            onEditBug={onEditBug}
+            loggedinUser={loggedinUser}
+            setLoggedinUser={setLoggedinUser} />
     </section>
 }
