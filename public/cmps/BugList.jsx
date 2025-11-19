@@ -4,13 +4,11 @@ import { BugPreview } from './BugPreview.jsx'
 export function BugList({ bugs, onRemoveBug, onEditBug, loggedinUser }) {
 
     if (!bugs) return <div>Loading...</div>
-
     return (
         <ul className="bug-list">
             {bugs.map(bug => (
                 <li key={bug._id}>
                     <BugPreview bug={bug} />
-
                     {(loggedinUser && (
                         loggedinUser.isAdmin || (bug.creator && loggedinUser._id === bug.creator._id)
                     )) && (

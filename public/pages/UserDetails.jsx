@@ -8,8 +8,7 @@ import { showErrorMsg } from "../services/event-bus.service.js"
 
 export function UserDetails() {
   const [user, setUser] = useState(null)
-  const [userBugs, setUserBugs] = useState([])   // ✅ state for bugs
-  const [lastPage, setLastPage] = useState(0)    // optional pagination
+  const [userBugs, setUserBugs] = useState([])   
   const params = useParams()
   const navigate = useNavigate()
 
@@ -18,15 +17,16 @@ export function UserDetails() {
     loadBugs()
   }, [params.userId])
 
-  function loadBugs() {
-    bugService.query({ creatorId: params.userId })
-  .then(bugs => {
-    setUserBugs(bugs)
-    console.log('Loaded bugs:', bugs)
-  })
-  .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`))
+function loadBugs() {
+  userService.getUserBugs(params.userId)
+    .then(bugs => {
+      console.log('Fetched bugs:', bugs)
+      setUserBugs(bugs)
+    })
+    .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`))
+}
 
-  }
+
 
   function loadUser() {
     userService.getById(params.userId)
@@ -42,14 +42,11 @@ export function UserDetails() {
   }
 
   if (!user) return <div>Loading...</div>
-
   return (
     <section className="user-details">
       <h1>User {user.fullname}</h1>
       <pre>{JSON.stringify(user, null, 2)}</pre>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
-
-      {/* ✅ pass the bugs state */}
       <BugList bugs={userBugs} />
 
       <button onClick={onBack}>Back</button>

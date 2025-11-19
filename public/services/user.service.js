@@ -1,17 +1,22 @@
-//public/services/user.service
-
 const BASE_URL = '/api/user/'
 
 export const userService = {
 query,
 getById,
-getEmptyCredentials
+getEmptyCredentials,
+getUserBugs
 }
 
 function query() {
 return axios.get(BASE_URL)
 .then(res => res.data)
 }
+
+function getUserBugs(userId) {
+  return axios.get(`/api/user/${userId}/bugs`)
+    .then(res => res.data)
+}
+
 
 function getById(userId) {
   return axios.get(BASE_URL + userId)

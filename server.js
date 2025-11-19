@@ -96,6 +96,14 @@ app.get('/api/user/:id', (req, res) => {
     })
     .catch(err => res.status(500).send('Failed to get user'))
 })
+app.get('/api/user/:id/bugs', (req, res) => {
+  const { id } = req.params
+  userService.getUserBugs(id)
+    .then(bugs => {
+      res.send(bugs)
+    })
+    .catch(err => res.status(500).send('Failed to get user bugs'))
+})
 
 
 app.listen(3030, () => console.log('Server ready at port 3030'));

@@ -11,6 +11,14 @@ getById,
 getByUsername,
 remove,
 add,
+getUserBugs
+}
+
+
+async function getUserBugs(userId) {
+  const bugs = await bugService.query() // load all bugs
+  const userBugs = bugs.filter(bug => bug.creator._id === userId)
+  return Promise.resolve(userBugs)
 }
 
 function query() {
