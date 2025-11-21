@@ -73,6 +73,11 @@ function checkIfAdmin() {
       </Link>
     )}
 
+    {
+      userBugs.length === 0 ? (<h2>This user has no created bugs yet.</h2>):(<h2>Created Bugs:</h2>)
+    }
+    
+
     <BugList bugs={userBugs} />
 
     <button onClick={onBack}>Back</button>

@@ -1,5 +1,13 @@
 [
     {
+        "_id": "u1000",
+        "username": "admin",
+        "fullname": "Admin Adminov",
+        "password": "admin",
+        "score": 100,
+        "isAdmin": true
+    },
+    {
         "_id": "u1001",
         "username": "nina",
         "fullname": "Nina Simantov",
@@ -18,6 +26,48 @@
         "password": "2",
         "fullname": "3",
         "_id": "9xtvMG",
+        "score": 100
+    },
+    {
+        "username": "te",
+        "password": "et",
+        "fullname": "qq",
+        "_id": "6AaOCz",
+        "score": 100
+    },
+    {
+        "username": "yr",
+        "password": "rwy",
+        "fullname": "4456",
+        "_id": "c51b10",
+        "score": 100
+    },
+    {
+        "username": "yqr",
+        "password": "yrqqry",
+        "fullname": "462426",
+        "_id": "iLxFpQ",
+        "score": 100
+    },
+    {
+        "username": "ninary",
+        "password": "357",
+        "fullname": "r",
+        "_id": "AaWyWr",
+        "score": 100
+    },
+    {
+        "username": "Yahavmor77@gmail.com",
+        "password": "sd",
+        "fullname": "wr",
+        "_id": "BELRWY",
+        "score": 100
+    },
+    {
+        "username": "yavash",
+        "password": "hu2",
+        "fullname": "pipa",
+        "_id": "74VoHD",
         "score": 100
     }
 ]
