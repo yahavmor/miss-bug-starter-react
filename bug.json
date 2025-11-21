@@ -32,22 +32,6 @@
     }
   },
   {
-    "_id": "7XKGDPZ",
-    "title": "Bug Issue 4",
-    "description": "Description for bug 4",
-    "severity": 3,
-    "createdAt": 1762778870770,
-    "labels": [
-      "startup",
-      "infra-team",
-      "touch"
-    ],
-    "creator": {
-      "_id": "u1002",
-      "fullname": "Popo Popova"
-    }
-  },
-  {
     "_id": "W37KMC4",
     "title": "Bug Issue 5",
     "description": "Description for bug 5",
@@ -112,26 +96,10 @@
     }
   },
   {
-    "_id": "U4U6DXQ",
-    "title": "Bug Issue 10",
-    "description": "Description for bug 10",
-    "severity": 2,
-    "createdAt": 1762778876770,
-    "labels": [
-      "bugfix",
-      "startup",
-      "need-CR"
-    ],
-    "creator": {
-      "_id": "AaWyWr",
-      "fullname": "r"
-    }
-  },
-  {
     "_id": "8E1KLX5",
-    "title": "Bug Issue 12",
-    "description": "Description for bug 12",
-    "severity": 2,
+    "title": "624",
+    "description": "ff",
+    "severity": 24624,
     "createdAt": 1762778878770,
     "labels": [
       "kernel",
@@ -176,22 +144,6 @@
     }
   },
   {
-    "_id": "NBFSUCS",
-    "title": "Bug Issue 16",
-    "description": "Description for bug 16",
-    "severity": 2,
-    "createdAt": 1762778882770,
-    "labels": [
-      "dev-branch",
-      "UI",
-      "optimization"
-    ],
-    "creator": {
-      "_id": "9xtvMG",
-      "fullname": "3"
-    }
-  },
-  {
     "_id": "M12PZTM",
     "title": "Bug Issue 17",
     "description": "Description for bug 17",
@@ -221,22 +173,6 @@
     "creator": {
       "_id": "c51b10",
       "fullname": "4456"
-    }
-  },
-  {
-    "_id": "T21CVSB",
-    "title": "Bug Issue 20",
-    "description": "Description for bug 20",
-    "severity": 2,
-    "createdAt": 1762778886770,
-    "labels": [
-      "camera",
-      "critical",
-      "UI"
-    ],
-    "creator": {
-      "_id": "iLxFpQ",
-      "fullname": "462426"
     }
   },
   {

@@ -56,7 +56,7 @@ function getById(id) {
 function remove(id) {
   const bugIdx = bugs.findIndex(b => b._id === id);
   if (bugIdx === -1) return Promise.reject('Bug not found');
-
+  
   const removedBug = bugs.splice(bugIdx, 1)[0];
   writeJsonFile('bug.json', bugs);
   return Promise.resolve(removedBug);

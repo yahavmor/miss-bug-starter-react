@@ -1,5 +1,5 @@
 const { useState, useEffect } = React
-const { useParams, useNavigate } = ReactRouterDOM
+const { Link, useParams, useNavigate } = ReactRouterDOM
 
 import { BugList } from "../cmps/BugList.jsx"
 import { userService } from "../services/user.service.js"
@@ -10,8 +10,10 @@ export function UserDetails() {
   const [userBugs, setUserBugs] = useState([])   
   const params = useParams()
   const navigate = useNavigate()
+  const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
+    checkIfAdmin()
     loadUser()
     loadBugs()
   }, [params.userId])
@@ -23,7 +25,17 @@ function loadBugs() {
     })
     .catch(err => showErrorMsg(`Couldn't load bugs - ${err}`))
 }
-
+function checkIfAdmin() {
+  userService.getById(params.userId)
+    .then(user => {
+      if (user.isAdmin) {
+        setIsAdmin(true)
+      } 
+    })
+    .catch(err => {
+      console.log('err:', err)
+    })
+}
 
 
   function loadUser() {
@@ -50,12 +62,17 @@ function loadBugs() {
       <div className="user-field"><span>Username:</span> {user.username}</div>
       <div className="user-field"><span>Full Name:</span> {user.fullname}</div>
     </div>
-
   <p>
   Welcome to Miss Bug — a simple and efficient way to track, review, and manage software issues. 
   Here you can browse all open bugs, report new ones, and follow updates from your team in real time. 
   Stay organized, stay productive, and keep your projects running smoothly.
   </p>
+    {isAdmin && (
+      <Link to='/user'>
+        <button>See All Users</button>
+      </Link>
+    )}
+
     <BugList bugs={userBugs} />
 
     <button onClick={onBack}>Back</button>

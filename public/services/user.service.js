@@ -6,7 +6,8 @@ export const userService = {
 query,
 getById,
 getEmptyCredentials,
-getUserBugs
+getUserBugs,
+remove
 }
 
 function query() {
@@ -19,6 +20,14 @@ function getUserBugs(userId) {
   .then(res => res.data)
 }
 
+function remove(id) {
+  return axios.delete(`${BASE_URL}${id}`)
+    .then(res => res.data)
+    .catch(err => {
+      console.error(`Error removing bug ${id}:`, err);
+      throw err;
+    });
+}
 
 function getById(userId) {
 

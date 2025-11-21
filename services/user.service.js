@@ -41,10 +41,14 @@ var user = users.find(user => user.username === username)
 return Promise.resolve(user)
 }
 
-function remove(userId) {
-users = users.filter(user => user._id !== userId)
-return _saveUsersToFile()
+function remove(id) {
+  const userIdx = users.findIndex(b => b._id === id);
+  if (userIdx === -1) return Promise.reject('User not found');
+
+  const removedUser = users.splice(userIdx, 1)[0];
+  return _saveUsersToFile().then(() => removedUser);
 }
+
 
 function add(user) { 
 

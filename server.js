@@ -17,8 +17,11 @@ app.get('/api/bug', (req, res) => {
     .then(bugs => res.send(bugs))
     .catch(err => res.status(500).send('Failed to load bugs'));
 });
-
-
+app.get('/api/user', (req, res) => {
+  userService.query(req.query)
+    .then(bugs => res.send(bugs))
+    .catch(err => res.status(500).send('Failed to load bugs'));
+});
 app.get('/api/bug/:id', (req, res) => {
     const { id } = req.params;
     let visitedBugs = req.cookies.visitedBugs ? req.cookies.visitedBugs : [];
@@ -42,6 +45,13 @@ app.delete('/api/bug/:id', (req, res) => {
   bugService.remove(id)
     .then(() => res.send({ message: 'Bug removed' }))
     .catch(err => res.status(404).send('Bug not found'));
+});
+app.delete('/api/user/:id', (req, res) => {
+  const { id } = req.params;
+  console.log('Deleting user with id:', id);
+  userService.remove(id)
+    .then(() => res.send({ message: 'user removed' }))
+    .catch(err => res.status(404).send('user not found'));
 });
 
 app.post('/api/bug', (req, res) => {
