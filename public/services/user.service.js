@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const BASE_URL = '/api/user/'
 
 export const userService = {
@@ -13,12 +15,13 @@ return axios.get(BASE_URL)
 }
 
 function getUserBugs(userId) {
-  return axios.get(`/api/user/${userId}/bugs`)
-    .then(res => res.data)
+  return axios.get(`${BASE_URL}${userId}/bugs`)
+  .then(res => res.data)
 }
 
 
 function getById(userId) {
+
   return axios.get(BASE_URL + userId)
   .then(res => res.data)
 }

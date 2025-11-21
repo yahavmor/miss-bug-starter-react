@@ -431,7 +431,7 @@
       "fullname": "Nina Simantov"
     },
     "id": "HHJ47M",
-      "fullname": "Nina eww"
+    "fullname": "Nina eww"
   },
   {
     "_id": "8NnCvdrrrDg",
@@ -449,6 +449,23 @@
       "fullname": "pipa"
     },
     "id": "8BCQ8o",
-      "fullname": "Nina gd"
+    "fullname": "Nina gd"
+  },
+  {
+    "title": "Bug 1763719529939",
+    "severity": 3,
+    "description": "Describe the bug here",
+    "labels": [
+      "critical",
+      "need-CR",
+      "bugfix"
+    ],
+    "createdAt": 1763719532282,
+    "creator": {
+      "_id": "u1001",
+      "fullname": "Nina Simantov"
+    },
+    "id": "kG9DxK",
+    "_id": "JkTTc5"
   }
 ]

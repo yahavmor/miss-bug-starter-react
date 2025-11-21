@@ -7,7 +7,8 @@ export const bugService = {
   remove,
   save,
   readJsonFile,
-  writeJsonFile
+  writeJsonFile,
+  getUserBugs
 };
 
 const bugs = readJsonFile('bug.json');
@@ -60,6 +61,12 @@ function remove(id) {
   writeJsonFile('bug.json', bugs);
   return Promise.resolve(removedBug);
 }
+function getUserBugs(userId) {
+  const bugsOfUser = bugs.filter(bug => bug.creator._id === userId)
+  return Promise.resolve(bugsOfUser)
+}
+
+
 
 function save(bug) {
   if (bug._id) {

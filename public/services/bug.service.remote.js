@@ -8,6 +8,7 @@ export const bugService = {
   remove,
   save,
   getDefaultFilter,
+  getBugsByUserId,
   getBugfromUser
 };
 
@@ -38,6 +39,12 @@ function remove(id) {
       console.error(`Error removing bug ${id}:`, err);
       throw err;
     });
+}
+function getBugsByUserId(userId){
+  const bugsOfUser =bugs.filter(bug =>{
+        return bug.creator._id === userId
+  });
+  return Promise.resolve(bugsOfUser);
 }
 
 function save(bug) {

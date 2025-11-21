@@ -87,6 +87,7 @@ app.post('/api/auth/logout',(req,res)=>{
   res.clearCookie('loginToken')
   res.send('logged-out')
 })
+
 app.get('/api/user/:id', (req, res) => {
   const { id } = req.params
   userService.getById(id)
@@ -98,12 +99,13 @@ app.get('/api/user/:id', (req, res) => {
 })
 app.get('/api/user/:id/bugs', (req, res) => {
   const { id } = req.params
-  userService.getUserBugs(id)
+  bugService.getUserBugs(id)
     .then(bugs => {
       res.send(bugs)
     })
     .catch(err => res.status(500).send('Failed to get user bugs'))
 })
+
 
 
 app.listen(3030, () => console.log('Server ready at port 3030'));

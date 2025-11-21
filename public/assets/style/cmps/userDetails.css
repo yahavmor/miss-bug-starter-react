@@ -1,7 +1,5 @@
-/* UserDetails.css */
-
 .user-details {
-  max-width: 600px;
+  max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
   background: #ffffff;
@@ -49,4 +47,33 @@
 
 .user-details button:hover {
   background: #2980b9;
+}
+.user-card {
+  background: #f7f7f7;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 100%;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+
+.user-card h2 {
+  margin-top: 0;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.user-field {
+  margin: 8px 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.user-field span {
+  font-weight: bold;
+  color: #222;
+  display: inline-block;
+  width: 110px;
 }
